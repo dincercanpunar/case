@@ -1,0 +1,35 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin border($direction) {
+  border-#{$direction}: 1px solid var(--border-color);
+}
+
+@mixin border-default {
+  border: 1px solid var(--border-color);
+}
+
+@mixin color-theme {
+  &.primary {
+    color: var(--primary-color);
+  }
+
+  &.dark {
+    color: var(--secondary-dark-color);
+  }
+
+  &.danger {
+    color: var(--danger-color);
+  }
+
+  &.muted {
+    color: var(--text-light-color);
+  }
+
+  &.white {
+    color: var(--text-white-color);
+  }
+}

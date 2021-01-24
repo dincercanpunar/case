@@ -5,11 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "svgr": "svgr constants/icons -d components/icons --icon"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
+    "currency-formatter": "^1.5.6",
     "next": "10.0.5",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "sass": "^1.32.5"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^5.5.0"
   }
 }

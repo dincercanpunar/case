@@ -1,0 +1,233 @@
+.products-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .header {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+    background-color: var(--header-bg-color);
+    padding: 0 20px;
+    @include border(bottom);
+    flex-basis: auto;
+    flex-shrink: 0;
+
+    .search {
+      width: 100%;
+      height: 30px;
+      border: 0;
+      margin: 0 10px;
+      outline: none;
+    }
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    overflow: auto;
+
+    .product {
+      height: 150px;
+      background-color: var(--card-bg-color);
+      display: flex;
+      flex-direction: column;
+      border-radius: 7px;
+      box-shadow: var(--shadow-color) 0px 8px 24px;
+      cursor: pointer;
+
+      &-image {
+        //flex: 1;
+        display: flex;
+        justify-content: center;
+        height: 90px;
+        padding: 10px;
+        @include border(bottom);
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &-details {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.cart-container {
+  width: $cart-width;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cart-bg-color);
+  @include border(left);
+  height: 100vh;
+
+  .header {
+    height: $header-height;
+    background-color: var(--header-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-basis: auto;
+    flex-shrink: 0;
+    @include border(bottom);
+  }
+
+  .cart-empty {
+    flex: 1;
+    @include flex-center;
+    flex-direction: column;
+    padding: 50px;
+
+    .icon {
+      height: 100px;
+      width: 100px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .cart-items {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    .cart-item-container {
+      display: flex;
+      position: relative;
+
+      &:hover {
+        .cart-item {
+          animation: cartItem 0.4s ease forwards;
+        }
+        .delete-button {
+          animation: deleteButton 0.4s ease forwards;
+        }
+      }
+
+      .cart-item {
+        flex: 1;
+        display: flex;
+        height: 80px;
+        padding: 15px;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        @include border(bottom);
+
+        &-left {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+        }
+
+        &-right {
+          display: flex;
+          align-items: center;
+          flex-basis: auto;
+          flex-shrink: 0;
+        }
+
+        &-photo {
+          height: 50px;
+          width: 50px;
+          border-radius: 5px;
+          padding: 5px;
+          margin-right: 10px;
+          position: relative;
+          @include border-default;
+
+          .badge {
+            height: 16px;
+            min-width: 16px;
+            border-radius: 8px;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--cart-bg-color);
+            padding: 0 3px;
+            @include flex-center;
+            @include border-default;
+          }
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .delete-button {
+        @include flex-center;
+        height: 80px;
+        width: 0;
+        background-color: var(--danger-color);
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .cart-bottom {
+    padding: 15px;
+    .tax-container {
+      height: 40px;
+      padding: 0 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include border-default;
+    }
+
+    .payment-container {
+      margin-top: 15px;
+      display: flex;
+
+      .payment-type {
+        height: 50px;
+        width: 50px;
+        margin-right: 15px;
+        @include border-default;
+        @include flex-center;
+      }
+
+      .payment {
+        flex: 1;
+        height: 50px;
+        padding: 0 15px;
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@keyframes cartItem {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -80px;
+  }
+}
+
+@keyframes deleteButton {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}

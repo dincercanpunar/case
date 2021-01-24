@@ -1,0 +1,38 @@
+.text {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: var(--text-color);
+  
+  &.ellipsis {
+    text-overflow: ellipsis; 
+    overflow: hidden;
+    white-space: nowrap; 
+  }
+
+  &.sm {
+    font-size: 11px;
+  }
+
+  &.bolder {
+    font-weight: 500;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  @include color-theme;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  color: var(--secondary-color);
+
+  @include color-theme;
+}
+
+::-webkit-input-placeholder {
+  color: var(--text-light-color);
+}

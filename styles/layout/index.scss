@@ -1,0 +1,60 @@
+.wrapper {
+  height: 100vh;
+  //overflow: hidden;
+  display: grid;
+  grid-template-columns: $aside-width 1fr;
+}
+
+.aside {
+  width: $aside-width;
+  background-color: var(--aside-bg-color);
+  @include border(right);
+  overflow: hidden;
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      height: $aside-width;
+      width: 100%;
+      cursor: pointer;
+      position: relative;
+      @include flex-center;
+
+      &.border-bottom {
+        @include border(bottom);
+      }
+
+      &.active {
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 3px;
+          height: 35px;
+          border-radius: 0 3px 3px 0;
+          background-color: var(--primary-color);
+        }
+
+        background-color: var(--primary-light-color);
+        .icon {
+          color: var(--primary-color);;
+        }
+      }
+    }
+
+    .divider {
+      height: 1px;
+      width: calc($aside-width - 30px);
+      margin: 15px;
+      background-color: var(--border-color);
+    }
+  }
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  background-color: var(--main-bg-color);
+}
