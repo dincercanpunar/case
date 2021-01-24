@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import currencyFormatter from "currency-formatter";
-import * as Icons from "../../components/icons";
-import { AppContext } from "../../context/AppProvider";
+import * as Icons from "../../icons";
+import { AppContext } from "../../../context/AppProvider";
 
 const Cart = () => {
   const { cart, deleteFromCart } = useContext(AppContext);

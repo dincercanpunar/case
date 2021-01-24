@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import * as Icons from "../../components/icons";
-import { Input } from "../../components/common";
-import { AppContext } from "../../context/AppProvider";
+import * as Icons from "../../icons";
+import { Input } from "../../common";
+import { AppContext } from "../../../context/AppProvider";
 
 const Products = () => {
   const { filteredProducts, addToCart } = useContext(AppContext);
